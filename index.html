@@ -5,9 +5,15 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="stylesheet" href="css/main.css" />
+        	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
 	</head>
 	<body>
-
+		<!-- 로딩페이지 -->
+            	<div class="cover">
+            	<li class="cover1">
+                	<p>Loading...</p>
+            	</li>
+            	</div>
 		<!-- Header -->
 			<header id="header" class="alt">
 				<div class="inner">
@@ -94,5 +100,14 @@
 						<p class="copyright">&copy; Untitled. Design: <a href="#">DAEUNED</a>. Images: <a href="#">Unsplash</a>.</p>
 					</footer>
 			</div>
+	        <!-- JQUERY -->
+        	<script>
+            	$(document).ready(function() { //문서가 준비되면 함수가 실행된다.
+            	$( ".cover1" )//cover1 클래스를 셀렉트
+            	.animate({left: "+=101%" }, 4000 ,function() { //애니메이션효과 오른쪽으로 101%만큼 4초동안 이동한다. 이동후 함수 실행
+            	$( ".cover" ).fadeOut( "slow" ); //cover 클래스 셀렉트,천천히 페이드아웃
+            	});
+            	});
+        	</script>
 	</body>
 </html>
