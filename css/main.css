@@ -218,7 +218,33 @@
 	hr {
 		border-bottom-color: #666666;
 	}
-
+/* 로딩페이지 */
+        .cover {
+            position: absolute;
+            width:100%;
+            height:100%;
+            background-color: #0c3c59;
+            z-index:9998;
+            overflow-x: hidden;
+        }
+        .cover1 {
+            position: absolute;
+            top:40%;
+            left:0;
+            float:left;
+            display:block;
+            margin:0 auto;
+            width:256px;
+            height:256px;
+            background:url('../images/car.png') no-repeat 0 0;
+            z-index:9999;
+            }
+        .cover1 > p {
+            font-size:25px;
+            font-weight: bold;
+            color: #FFF;
+            text-align: center;
+        }
 /* Button */
 
 	input[type="submit"],
