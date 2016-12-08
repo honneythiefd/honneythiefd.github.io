@@ -5,15 +5,32 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="stylesheet" href="css/main.css" />
-        	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
 	</head>
 	<body>
-		<!-- 로딩페이지 -->
-            	<div class="cover">
-            	<li class="cover1">
-                	<p>Loading...</p>
-            	</li>
-            	</div>
+        <!-- 로딩페이지 -->
+            <div class="cover">
+            <li class="cover1">
+                <p>Loading...</p>
+            </li>
+            </div>
+        <!-- nav -->
+        <header class="topnav">
+        <nav>
+        <li class="logo">Epilogue</li>    
+        </nav>
+        <div class="line"></div>
+        </header>
+        <section class="contac">
+        <div class="contac_btn"><span>1</span></div>
+        <div class="contac_con">
+            <ul>
+                <li>
+                    <p>김다은<br />1991.10.12<br />경기도 용인<br />
+                    PH.010-0000-0000<br />honneythief@gmail.com</p>
+                </li>
+            </ul>
+        </div>
+        </section>
 		<!-- Header -->
 			<header id="header" class="alt">
 				<div class="inner">
@@ -21,7 +38,6 @@
 					<p>A free responsive site template by <a href="#">TEMPLATED</a></p>
 				</div>
 			</header>
-
 		<!-- Wrapper -->
 			<div id="wrapper">
 				<!-- Banner -->
@@ -100,14 +116,58 @@
 						<p class="copyright">&copy; Untitled. Design: <a href="#">DAEUNED</a>. Images: <a href="#">Unsplash</a>.</p>
 					</footer>
 			</div>
-	        <!-- JQUERY -->
-        	<script>
-            	$(document).ready(function() { //문서가 준비되면 함수가 실행된다.
-            	$( ".cover1" )//cover1 클래스를 셀렉트
-            	.animate({left: "+=101%" }, 4000 ,function() { //애니메이션효과 오른쪽으로 101%만큼 4초동안 이동한다. 이동후 함수 실행
-            	$( ".cover" ).fadeOut( "slow" ); //cover 클래스 셀렉트,천천히 페이드아웃
-            	});
-            	});
-        	</script>
-	</body>
+            <div id="easy-top"/>
+<!-- JQUERY -->
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+<script>
+        $(document).ready(function() { //문서가 준비되면 함수가 실행된다.
+        $( ".cover1" )//cover1 클래스를 셀렉트
+        .animate({left: "+=101%" }, 4000 ,function() { //애니메이션효과 오            른쪽으로 101%만큼 4초동안 이동한다. 이동후 함수 실행
+        $( ".cover" ).fadeOut( "slow" ); //cover 클래스 셀렉트,천천히 페이           드아웃
+        });
+        });
+$(document).ready(function () { //시작
+            //변수화 시작
+        var $easyTop = $('#easy-top');
+        var $topNav = $('.topnav'); 
+        var $loGo = $('.logo'); 
+        var $intro = $('#intro');
+        var vw = window.innerWidth; // 현재 윈도우의 wdith값
+        var vh = window.innerHeight; // 현재 윈도우의 height 값
+        var bh = $('body').height(); // body의 높이
+        var mbh = bh - vh; // body 높이 - 윈도우의 height 값
+            //변수화 끝
+    //스크롤 이벤트_메뉴 페이드 인
+    $(window).scroll(function () { //스크롤
+        if ($(this).scrollTop() > 600) { //윈도우의 스크롤값이 600보다 크면
+            $easyTop.fadeIn(100); //easytop 페이드 인
+            $topNav.addClass('navwrap'); //topNav에 navwrap 클래스 추가
+            $intro.css('opacity','1');
+        } else { //그렇지 않다면
+            $easyTop.fadeOut(0); //easytop 페이드 아웃
+            $topNav.removeClass('navwrap'); //topNav에 navwrap 클래스 제거
+            $intro.css('opacity','0');
+        }
+    });
+    $(window).scroll(); // 스크롤이벤트를 발생시켜달라는 요청
+    //스크롤 이벤트_게이지 차징
+    $(window).scroll( function() {
+      var st = $('body').scrollTop(); // body의 스크롤 위치 값
+      var x = ( ( st * vw ) / mbh ); // (body스크롤 위치 * 윈도우의 width 값) / body높이 - 윈도우의 height 값
+      $('.line').css('width', x); // .line의 css width값을 x 만큼 변경
+    });
+    //클릭 이벤트
+    $('#easy-top,.logo').click(function () { //easytop,logo 클릭 시
+        $("html, body").animate({
+            scrollTop: 0 //스크롤값이 0으로 이동하는 애니메이션 실행
+        },600);
+        
+    });
+    $('.contac_btn').click(function(){ //contac_btn 을 클릭 시
+        $('.contac_con').toggleClass("view2"); //contac_con에 view2 토클클래스 부여
+        $(this).toggleClass("view1"); //contac_btn에 view1 토클클래스 부여
+    })
+}); //끝
+</script>
+</body>
 </html>
